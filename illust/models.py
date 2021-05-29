@@ -1,10 +1,16 @@
 from django.db import models
 from django.utils import timezone
+
+import uuid 
+
+
 # Create your models here.
 class Design(models.Model):
     # テーブル名の定義
     class Meta:
         db_table = "design"
+
+    id          = models.UUIDField( default=uuid.uuid4, primary_key=True, editable=False )
 
     # カラム(フィールド)の定義
     title = models.CharField(verbose_name="タイトル", max_length=100)
@@ -18,8 +24,6 @@ class Design(models.Model):
 
     #TIPS:サムネイル生成に失敗したデータを判定する(バッチ処理が失敗したデータを除外して生成作業をするため)
     error = models.BooleanField(verbose_name="エラー状態",default=False)
-
-
 
 
 

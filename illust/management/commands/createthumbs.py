@@ -55,7 +55,7 @@ class Command(BaseCommand):
                 #サムネイルのサイズを調整する処理
                 if not design.error:
                     image           = Image.open(settings.MEDIA_ROOT + "/" + str(design.thumbnail))
-                    image_resize    = image.resize((500,500))
+                    image_resize    = image.resize((250,250))
                     image_resize.save(full_path)
                     print("リサイズ")
 
